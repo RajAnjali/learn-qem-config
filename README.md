@@ -19,4 +19,4 @@ This repo experiments with zero-noise extrapolation (ZNE) workflows using [mitiq
 ### Background
 
 The schema portion of this work originated from a project with @ecarlander and @ruheenirodi.
-See https://github.com/unitaryfoundation/mitiq/issues/2586 and https://github.com/unitaryfoundation/mitiq/issues/2586 for more details.
+The schema RFC can be found [here](https://docs.google.com/document/d/1yX1yzs2TuGfM62CPwFcFwoTNp0IjoWNkznlsIfYuZog/), and see https://github.com/unitaryfoundation/mitiq/issues/2586 and https://github.com/unitaryfoundation/mitiq/issues/2586 for more details.
