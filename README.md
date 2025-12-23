@@ -14,3 +14,9 @@ This repo experiments with zero-noise extrapolation (ZNE) workflows using [mitiq
 2. Add different circuits and observables beyond the current GHZ setup so we can probe the mitigation routines on diverse workloads.
 3. Build routines that adaptively explore ZNE parameters to discover the best configuration per backend. Begin with scripted sweeps, then incorporate feedback-driven tuning, and finally automate backend-specific parameter selection.
 4. Use optimization routines on other QEM techniques.
+
+
+### Background
+
+The schema portion of this work originated from a project with @ecarlander and @ruheenirodi.
+See https://github.com/unitaryfoundation/mitiq/issues/2586 and https://github.com/unitaryfoundation/mitiq/issues/2586 for more details.
