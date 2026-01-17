@@ -9,10 +9,11 @@ from mitiq.zne.scaling.identity_insertion import insert_id_layers
 from mitiq.zne.scaling.layer_scaling import get_layer_folding
 from qiskit import QuantumCircuit, transpile
 from noise_model_backends import get_noise_backend
-from experiments import get_experiment
+from circuits import get_experiment
 
-NOISE_MODEL="thermal"                   #{depolarizing, amplitude_damping, phase_damping, readout, thermal}
-EXPERIMENT="mirror_circuits"            #{ghz, mirror_circuits}
+NOISE_MODEL="depolarizing"                   #{depolarizing, amplitude_damping, phase_damping, readout, thermal}
+CIRCUIT="rotated_rb_circuits"            #{ghz, mirror_circuits, rb_circuits, rotated_rb_circuits}
+
 
 # Load Schema:
 def load(schema_path):
@@ -167,7 +168,7 @@ def batch_execute(batch_dict, circuit, executor):
 
 
 # Create the circuit and verifying function of the experiment
-circ, verify_func= get_experiment(EXPERIMENT)
+circ, verify_func, ideal_result= get_experiment(CIRCUIT)
 
 # Create the backend given the noise model
 backend = get_noise_backend(NOISE_MODEL)
@@ -175,12 +176,12 @@ backend = get_noise_backend(NOISE_MODEL)
 
 exe=make_executor(backend, verify_func, shots=4096)
 
-'''
-ideal_ev = 1.0
+
+ideal_ev = ideal_result
 noisy_ev=exe(circ)
 print("ideal EV:", ideal_ev)
 print(f"{NOISE_MODEL} EV:", noisy_ev)
-'''
+
 
 exp_results = batch_execute(zne_batch_test, circ, exe)
 for k in np.arange(1, 7):
