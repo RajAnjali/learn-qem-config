@@ -50,7 +50,7 @@ def _build_thermal_relaxation_backend(T1=50e3, T2=70e3, gate_time_1q=50, gate_ti
 # since these are best suited for general ZNE optimization. 
 
 
-def _build_general_zne_backend(prob_1q=0.002, prob_2q=0.008, T1=50e3, T2=70e3, gate_time_1q=50, gate_time_2q=300)
+def _build_general_zne_backend(prob_1q=0.002, prob_2q=0.008, T1=50e3, T2=70e3, gate_time_1q=50, gate_time_2q=300):
     noise_model = NoiseModel()
     #single qubit
     depol_1q = depolarizing_error(prob_1q, 1)
